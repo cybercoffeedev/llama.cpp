@@ -1,0 +1,11 @@
+services:
+  llama-server:
+    image: local/llama.cpp:server
+    build: 
+      dockerfile: ./.devops/cpu.Dockerfile
+    container_name: llama-server
+    ports:
+      - 8080:8080
+    volumes:
+      - "./models:/app/models"
+    restart: unless-stopped
